@@ -1,0 +1,412 @@
+/*MAIN*/
+
+body{
+  margin: 0 auto;
+  width: 90vw;
+
+}
+
+button:focus {
+  outline: 0;
+
+}
+
+/*SIDEBAR*/
+
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  padding-top: 60px;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #17A2B8;
+  overflow: hidden;
+  transition: 0.5s;
+
+}
+
+.sidenav a {
+  position: relative;
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: darkslategray;
+  display: block;
+  transition: 0.3s;
+
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+
+}
+
+a img{
+  height: 50px; 
+  width: 50px;
+  margin-right: 10px;
+
+}
+
+.view{
+  width: 300px;
+
+}
+
+/*HAMBURGER-BUTTON*/
+
+.hamburger {
+  z-index: 2;
+  padding: 15px 15px;
+  position: absolute;
+  display: inline-block;
+  cursor: pointer;
+  transition-property: opacity, filter;
+  transition-duration: 0.15s;
+  transition-timing-function: linear;
+  font: inherit;
+  color: inherit;
+  text-transform: none;
+  background-color: transparent;
+  border: 0;
+  margin: 0;
+  overflow: visible; 
+
+}
+
+.hamburger:hover {
+  opacity: 0.7; 
+  
+}
+
+.hamburger.is-active:hover {
+  opacity: 0.7; 
+
+}
+
+.hamburger.is-active .hamburger-inner,
+.hamburger.is-active .hamburger-inner::before,
+.hamburger.is-active .hamburger-inner::after {
+  background-color: #000; 
+
+}
+
+.hamburger-box {
+  width: 40px;
+  height: 24px;
+  display: inline-block;
+  position: relative; 
+
+}
+
+.hamburger-inner {
+  display: block;
+  top: 50%;
+  margin-top: -2px; 
+
+}
+
+.hamburger-inner, .hamburger-inner::before, .hamburger-inner::after {
+  width: 40px;
+  height: 4px;
+  background-color: #000;
+  border-radius: 4px;
+  position: absolute;
+  transition-property: transform;
+  transition-duration: 0.15s;
+  transition-timing-function: ease; 
+
+}
+
+.hamburger-inner::before, .hamburger-inner::after {
+  content: "";
+  display: block; 
+
+}
+
+.hamburger-inner::before {
+  top: -10px; 
+
+}
+
+.hamburger-inner::after {
+  bottom: -10px; 
+
+}
+
+.hamburger--elastic .hamburger-inner {
+  top: 2px;
+  transition-duration: 0.275s;
+  transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55); 
+
+}
+
+.hamburger--elastic .hamburger-inner::before {
+  top: 10px;
+  transition: opacity 0.125s 0.275s ease; 
+
+}
+
+.hamburger--elastic .hamburger-inner::after {
+  top: 20px;
+  transition: transform 0.275s cubic-bezier(0.68, -0.55, 0.265, 1.55); 
+
+}
+
+.hamburger--elastic.is-active .hamburger-inner {
+  transform: translate3d(0, 10px, 0) rotate(135deg);
+  transition-delay: 0.075s; 
+
+}
+
+.hamburger--elastic.is-active .hamburger-inner::before {
+  transition-delay: 0s;
+  opacity: 0; 
+
+}
+
+.hamburger--elastic.is-active .hamburger-inner::after {
+  transform: translate3d(0, -20px, 0) rotate(-270deg);
+  transition-delay: 0.075s; 
+
+}
+
+/*TRAIN-PLAY SWITCHER*/
+
+.switch {
+    position: relative;
+    display: inline-block;
+    top: 10px;
+    left: 70%;
+    width: 90px;
+    height: 34px;
+
+  }
+  
+.switch input {
+  display:none;
+
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ca2222;
+  -webkit-transition: .4s;
+  transition: .4s;
+   border-radius: 34px;
+}
+  
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #2ab934;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(55px);
+}
+
+.slider:after
+{
+ content:'PLAY';
+ color: white;
+ display: block;
+ position: absolute;
+ transform: translate(-50%,-50%);
+ top: 50%;
+ left: 70%;
+ font-size: 14px;
+ font-family:"Neucha", -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+input:checked + .slider:after
+{  
+  content:'TRAIN';
+  top: 50%;
+  left: 30%;
+}
+
+/*CARDS SECTION*/
+
+.flip-box {
+  width: 300px;
+  height: 300px;
+  perspective: 1000px;
+  margin: 10px;
+
+}
+
+.flip-inner {
+  position: relative;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+ 
+}
+
+.translate{
+  transform: rotateY(-180deg);
+
+}
+
+.flip-front{
+  position: absolute;
+  z-index: 1;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  font-size: 20px;
+}
+
+.flip-back {
+  font-size: 20px;
+  transform: rotateY(-180deg);
+ 
+}
+
+#cards{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.card{
+max-width: 20rem;
+}
+
+.card-header{
+  display: flex;
+  justify-content: space-between;
+}
+
+.category-picture{
+  display: block;
+  height: 200px; 
+  width: 100%; 
+  border: 2px solid #333333;
+}
+
+.category-picture:hover {
+  border: dashed 5px #333333;
+  border-radius: 20px 20px 20px 20px;
+    
+}
+
+.rotate-holder{
+  width:40px;
+  height:40px;
+  transition:2.5s;
+
+}
+
+.rotate-holder:hover{
+  transform:rotate(720deg);
+
+}
+
+
+/*PLAY GAME*/
+.btn{
+  margin-left: 20%;
+  margin-right: 20%;
+  position: relative;
+  bottom: 50px;
+  width: 150px;
+  height: 80px;
+  background-position: center;
+  text-align: center;
+
+}
+
+.disable{
+  display: none;
+}
+
+.play-mode{
+  display: block;
+
+}
+
+.press-play {
+  background: url(../assets/img/start-play.png) no-repeat;
+  background-position: center;
+}
+
+.press-repeat{
+  background: url(../assets/img/repeat.png) no-repeat ;
+  background-position: center;
+
+}
+
+#statistic{
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  max-width: 1200px;
+  height: 40px;
+  overflow-x: hidden;
+  margin: 0 auto;
+  line-height: 36px;
+  font-size: 36px;
+}
+
+.correct-answer{
+  opacity: 0.2;
+  border: dashed 5px #333333;
+  border-radius: 20px 20px 20px 20px;
+}
+.sign-correct, .sign-fail{
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+
+}
+
+.sign-correct{
+  background: url(../assets/img/correct.png) no-repeat ;
+
+}
+
+.sign-fail{
+  background: url(../assets/img/wrong.png) no-repeat ;
+}
+
+#congrats, #fail{
+  position: absolute;
+  z-index: 2;
+  margin-top: 50px;
+}
+
+#fail{
+  width: 70vw;
+  height: 40vh;
+
+}
+
+#congrats{
+  width: 60vw;
+  height: 60vh;
+  
+}
